@@ -16,7 +16,15 @@ const WelcomePage = () => {
           Welcome to Nice Notes, a free ToDo/Notes app
         </h1>
       </div>
-      <WelcomeForm />
+      <div
+        style={{
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <WelcomeForm />
+      </div>
     </div>
   );
 };
