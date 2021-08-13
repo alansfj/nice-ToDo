@@ -1,7 +1,14 @@
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import WelcomePage from "./pages/WelcomePage";
+
 function App() {
   return (
     <div>
-      <h2>App</h2>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={WelcomePage} />
+        </Switch>
+      </Router>
     </div>
   );
 }

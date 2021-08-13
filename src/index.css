@@ -2,7 +2,7 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   font-family: sans-serif;
-  /* background: #333; */
+  background: #25242e;
 }
 
 *,
@@ -13,4 +13,5 @@ html {
 
 body {
   margin: 0;
+  min-height: 100vh;
 }

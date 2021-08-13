@@ -1,0 +1,60 @@
+.welcome-form-container {
+  text-align: center;
+  font-size: 1.3rem;
+  padding: 0 2rem;
+  margin: 2rem auto;
+  max-width: 20vw;
+  height: 200px;
+  background-color: snow;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & > label {
+    align-self: flex-start;
+    margin-bottom: 0.5rem;
+  }
+
+  & > #name {
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #edf1f8;
+  }
+
+  & > .btn {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    max-width: 7rem;
+    align-self: flex-end;
+    background-color: #294168;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #36568f;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .welcome-form-container {
+    max-width: 35vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .welcome-form-container {
+    max-width: 50vw;
+  }
+}
+@media screen and (max-width: 480px) {
+  .welcome-form-container {
+    max-width: 80vw;
+  }
+}
