@@ -4,6 +4,7 @@ const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
   const themes = {
+    blueDefault: "#294168",
     green: "#2B9264",
     blue: "#59A4EA",
     purple: "#8065DC",
@@ -13,9 +14,11 @@ const ThemeProvider = ({ children }) => {
     yellow: "#DE9C22",
   };
 
-  return (
-    <ThemeContext.Provider value={themes}>{children}</ThemeContext.Provider>
-  );
+  const data = {
+    themes,
+  };
+
+  return <ThemeContext.Provider value={data}>{children}</ThemeContext.Provider>;
 };
 
 export default ThemeProvider;

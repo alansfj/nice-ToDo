@@ -6,6 +6,7 @@ const WelcomePage = () => {
     <div>
       <div
         style={{
+          height: "25vh",
           textAlign: "center",
           padding: "80px 0",
           backgroundColor: "#294168",
