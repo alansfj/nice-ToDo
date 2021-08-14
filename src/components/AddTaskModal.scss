@@ -1,0 +1,60 @@
+.modal-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #13121750;
+  display: flex;
+  display: none;
+  //   visibility: hidden;
+
+  & > .modal-form {
+    background-color: white;
+    width: 30vw;
+    height: 15rem;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & > * {
+      margin: 1rem 0px;
+      font-size: 1rem;
+    }
+
+    & > input {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+      background-color: #edf1f8;
+      outline: none;
+    }
+
+    & > h3 {
+      margin: 0;
+    }
+
+    & > p {
+      margin: 0;
+      color: red;
+    }
+
+    & > .p-hidden {
+      visibility: hidden;
+    }
+
+    & > .modal-btns {
+      align-self: flex-end;
+      & > button {
+        margin: 0 5px;
+      }
+    }
+  }
+}
+
+.displayed {
+  display: flex;
+}
