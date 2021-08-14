@@ -6,6 +6,7 @@ import "./WelcomeForm.scss";
 const WelcomeForm = () => {
   const { user, setUser } = useContext(UserContext);
   const inputRef = useRef();
+  const pRef = useRef();
   const history = useHistory();
   const location = useLocation();
 
@@ -16,8 +17,9 @@ const WelcomeForm = () => {
   const submitUser = () => {
     // console.log(inputRef.current);
     if (!user) {
-      alert("Se necesita proporcionar un nombre");
+      pRef.current.classList.remove("hidden");
     } else {
+      localStorage.setItem("user", user);
       history.push(`${location.pathname}my-notes`);
     }
   };
@@ -41,6 +43,9 @@ const WelcomeForm = () => {
         onKeyPress={handleKeyPress}
         ref={inputRef}
       />
+      <p ref={pRef} className="hidden">
+        Enter a name
+      </p>
       <button className="btn" onClick={submitUser}>
         Continue
       </button>

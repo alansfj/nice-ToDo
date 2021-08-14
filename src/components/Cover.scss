@@ -1,8 +1,33 @@
 .cover-container {
-  height: 25vh;
+  display: flex;
+  align-items: center;
+}
 
-  & > h1 {
-    color: snow;
+.cover-info {
+  width: 70vw;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+
+  & > .btn-settings {
+    background-color: #de9c22;
+    width: 5rem;
+    align-self: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+}
+
+.user-date {
+  & > h2 {
+    color: white;
     margin: 0;
+  }
+
+  & > h4 {
+    color: white;
+    margin: 0;
+    opacity: 0.7;
   }
 }

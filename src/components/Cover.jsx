@@ -1,18 +1,25 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/themeContext";
-import { UserContext } from "../context/userContext";
+// import { UserContext } from "../context/userContext";
 import "./Cover.scss";
 
 const Cover = () => {
-  const { user } = useContext(UserContext);
+  //   const { user } = useContext(UserContext);
   const { themes } = useContext(ThemeContext);
+  const user = localStorage.getItem("user");
 
   return (
     <div
       className="cover-container"
-      style={{ backgroundColor: `${themes.blueDefault}` }}
+      style={{ backgroundColor: `${themes.blueDefault}`, height: "25vh" }}
     >
-      <h1>Welcome {user}</h1>
+      <div className="cover-info">
+        <div className="user-date">
+          <h2>Welcome {user}</h2>
+          <h4>{new Date().toDateString()}</h4>
+        </div>
+        <button className="btn-settings">Settings</button>
+      </div>
     </div>
   );
 };
