@@ -1,0 +1,13 @@
+.todo-column-container {
+  //   position: absolute;
+  width: 25rem;
+  min-height: 15rem;
+  background-color: snow;
+  margin: 0 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  & > h3 {
+    margin: 0;
+  }
+}
