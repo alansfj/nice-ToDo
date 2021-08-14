@@ -1,16 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ToDo.scss";
 import ToDoColumn from "./ToDoColumn";
 
-const initialToDos = {
-  todo: {},
-  inprogress: {},
-  done: {},
-};
-
 const ToDo = ({ setIsModalDisplayed }) => {
-  const [toDos, setToDos] = useState(initialToDos);
-
   return (
     <div className="todo-container">
       <ToDoColumn

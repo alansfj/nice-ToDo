@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TodosContext } from "../context/todosContext";
 import "./ToDoColumn.scss";
 
 const ToDoColumn = ({ title, todo, setIsModalDisplayed }) => {
+  const { toDos, setToDos } = useContext(TodosContext);
+
   return (
     <div className="todo-column-container">
       {todo ? (

@@ -1,5 +1,6 @@
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import ThemeProvider from "./context/themeContext";
+import TodosProvider from "./context/todosContext";
 import UserProvider from "./context/userContext";
 import MyNotes from "./pages/MyNotes";
 import WelcomePage from "./pages/WelcomePage";
@@ -9,12 +10,14 @@ function App() {
     <div>
       <UserProvider>
         <ThemeProvider>
-          <Router>
-            <Switch>
-              <Route exact path="/" component={WelcomePage} />
-              <Route exact path="/my-notes" component={MyNotes} />
-            </Switch>
-          </Router>
+          <TodosProvider>
+            <Router>
+              <Switch>
+                <Route exact path="/" component={WelcomePage} />
+                <Route exact path="/my-notes" component={MyNotes} />
+              </Switch>
+            </Router>
+          </TodosProvider>
         </ThemeProvider>
       </UserProvider>
     </div>
