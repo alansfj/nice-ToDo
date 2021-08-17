@@ -1,0 +1,7 @@
+.task-container {
+  display: flex;
+
+  & > p {
+    margin: 0;
+  }
+}

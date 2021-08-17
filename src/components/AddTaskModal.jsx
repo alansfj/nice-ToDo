@@ -1,11 +1,12 @@
 import React, { useContext, useRef } from "react";
 import { TodosContext } from "../context/todosContext";
-import "./AddTaskModal.scss";
+import "../Sass/AddTaskModal.scss";
 
 const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
   const inputRef = useRef();
   const pRef = useRef();
-  const { toDos, setToDos } = useContext(TodosContext);
+  const { toDo, setToDo } = useContext(TodosContext);
+  let id = 1;
 
   const saveTask = () => {
     if (!inputRef.current.value.trim()) {
@@ -13,6 +14,7 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
       pRef.current.classList.remove("p-hidden");
     } else {
       pRef.current.classList.add("p-hidden");
+      setToDo({ ...toDo, id: id++, task: inputRef.current.value });
     }
   };
 

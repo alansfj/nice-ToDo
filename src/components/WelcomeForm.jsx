@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { UserContext } from "../context/userContext";
-import "./WelcomeForm.scss";
+import "../Sass/WelcomeForm.scss";
 
 const WelcomeForm = () => {
   const { user, setUser } = useContext(UserContext);

@@ -1,6 +1,6 @@
 import React from "react";
-import "./ToDo.scss";
 import ToDoColumn from "./ToDoColumn";
+import "../Sass/ToDo.scss";
 
 const ToDo = ({ setIsModalDisplayed }) => {
   return (

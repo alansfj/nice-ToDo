@@ -1,29 +1,17 @@
 import React from "react";
 import WelcomeForm from "../components/WelcomeForm";
+import "../Sass/WelcomePage.scss";
 
 const WelcomePage = () => {
   return (
     <div>
-      <div
-        style={{
-          height: "25vh",
-          textAlign: "center",
-          padding: "80px 0",
-          backgroundColor: "#294168",
-        }}
-      >
+      <div className="title-box">
         {" "}
-        <h1 style={{ color: "white", margin: "0" }}>
+        <h1 className="welcome-title">
           Welcome to Nice Notes, a free ToDo/Notes app
         </h1>
       </div>
-      <div
-        style={{
-          position: "relative",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <div className="welcome-form-box">
         <WelcomeForm />
       </div>
     </div>

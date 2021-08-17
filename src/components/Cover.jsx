@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/themeContext";
 // import { UserContext } from "../context/userContext";
-import "./Cover.scss";
+import "../Sass/Cover.scss";
 
 const Cover = () => {
   //   const { user } = useContext(UserContext);
@@ -11,7 +11,7 @@ const Cover = () => {
   return (
     <div
       className="cover-container"
-      style={{ backgroundColor: `${themes.blueDefault}`, height: "25vh" }}
+      style={{ backgroundColor: `${themes.blueDefault}` }}
     >
       <div className="cover-info">
         <div className="user-date">

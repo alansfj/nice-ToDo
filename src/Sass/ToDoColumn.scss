@@ -7,7 +7,12 @@
   padding: 1rem;
   border-radius: 0.5rem;
 
-  & > h3 {
-    margin: 0;
+  & > .todo-title-container {
+    display: flex;
+    justify-content: space-between;
+
+    & > .todo-title {
+      margin: 0;
+    }
   }
 }

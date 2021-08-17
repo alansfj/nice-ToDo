@@ -3,15 +3,17 @@ import React, { createContext, useState } from "react";
 const TodosContext = createContext();
 
 const initialToDos = {
-  todo: {},
-  inprogress: {},
-  done: {},
+  todo: [],
+  inprogress: [],
+  done: [],
 };
 
 const TodosProvider = ({ children }) => {
-  const [toDos, setToDos] = useState(initialToDos);
+  const [toDo, setToDo] = useState(initialToDos.todo);
+  const [inProgress, setInProgress] = useState(initialToDos.inprogress);
+  const [done, setDone] = useState(initialToDos.done);
 
-  const data = { toDos, setToDos };
+  const data = { toDo, setToDo, inProgress, setInProgress, done, setDone };
 
   return <TodosContext.Provider value={data}>{children}</TodosContext.Provider>;
 };
