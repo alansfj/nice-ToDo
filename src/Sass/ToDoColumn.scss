@@ -1,6 +1,6 @@
 .todo-column-container {
   //   position: absolute;
-  width: 25rem;
+  width: 35rem;
   min-height: 15rem;
   background-color: snow;
   margin: 0 1rem;
@@ -14,5 +14,9 @@
     & > .todo-title {
       margin: 0;
     }
+  }
+
+  & > h3 {
+    margin: 0;
   }
 }

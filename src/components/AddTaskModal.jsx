@@ -1,21 +1,28 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { TodosContext } from "../context/todosContext";
 import "../Sass/AddTaskModal.scss";
+
+const initialForm = { task: "", id: null };
 
 const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
   const inputRef = useRef();
   const pRef = useRef();
   const { toDo, setToDo } = useContext(TodosContext);
-  let id = 1;
+  const [form, setForm] = useState(initialForm);
 
   const saveTask = () => {
-    if (!inputRef.current.value.trim()) {
-      //   console.log("input vacio");
+    if (!form.task) {
       pRef.current.classList.remove("p-hidden");
+      return;
     } else {
       pRef.current.classList.add("p-hidden");
-      setToDo({ ...toDo, id: id++, task: inputRef.current.value });
     }
+
+    toDo.push({ id: Date.now(), task: form.task });
+    setToDo([...toDo]);
+    setIsModalDisplayed(false);
+    inputRef.current.value = "";
+    setForm({});
   };
 
   const handleKeyPress = e => {
@@ -24,15 +31,25 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
     }
   };
 
+  const handleChange = e => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value.trim(),
+    });
+  };
+
   return (
     <div className={`${isModalDisplayed && "displayed"} modal-container`}>
       <div className="modal-form">
         <h3>New Task</h3>
         <input
           type="text"
+          name="task"
           placeholder="Task..."
+          autoComplete="off"
           ref={inputRef}
           onKeyPress={handleKeyPress}
+          onChange={handleChange}
         />
         <p className="p-hidden" ref={pRef}>
           Enter your task
@@ -42,6 +59,7 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
             onClick={() => {
               setIsModalDisplayed(false);
               inputRef.current.value = "";
+              setForm({});
               pRef.current.classList.add("p-hidden");
             }}
           >

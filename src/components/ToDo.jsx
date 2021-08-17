@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import ToDoColumn from "./ToDoColumn";
 import "../Sass/ToDo.scss";
+import { TodosContext } from "../context/todosContext";
 
 const ToDo = ({ setIsModalDisplayed }) => {
   return (
     <div className="todo-container">
       <ToDoColumn
-        todo
+        todoColumn
         title="To Do"
         setIsModalDisplayed={setIsModalDisplayed}
       />
-      <ToDoColumn inprogress title="In Progress" />
-      <ToDoColumn done title="Done" />
+      <ToDoColumn inProgressColumn title="In Progress" />
+      <ToDoColumn doneColumn title="Done" />
     </div>
   );
 };
