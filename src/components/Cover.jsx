@@ -16,7 +16,7 @@ const Cover = () => {
       <div className="cover-info">
         <div className="user-date">
           <h2>Welcome {user}</h2>
-          <h4>{new Date().toDateString()}</h4>
+          <h4>{new Date().toLocaleDateString()}</h4>
         </div>
         <button className="btn-settings">Settings</button>
       </div>
