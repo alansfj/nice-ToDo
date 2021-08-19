@@ -14,7 +14,7 @@ function App() {
             <Router>
               <Switch>
                 <Route exact path="/" component={WelcomePage} />
-                <Route exact path="/my-notes" component={MyNotes} />
+                <Route exact path="/my-todo" component={MyNotes} />
               </Switch>
             </Router>
           </TodosProvider>

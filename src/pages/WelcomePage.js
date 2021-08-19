@@ -8,7 +8,7 @@ const WelcomePage = () => {
       <div className="title-box">
         {" "}
         <h1 className="welcome-title">
-          Welcome to Nice Notes, a free ToDo/Notes app
+          Welcome to "Nice ToDo", a free ToDo app
         </h1>
       </div>
       <div className="welcome-form-box">

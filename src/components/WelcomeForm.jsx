@@ -20,7 +20,7 @@ const WelcomeForm = () => {
       pRef.current.classList.remove("hidden");
     } else {
       localStorage.setItem("user", user);
-      history.push(`${location.pathname}my-notes`);
+      history.push(`${location.pathname}my-todo`);
     }
   };
 
