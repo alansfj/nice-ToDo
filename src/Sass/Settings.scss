@@ -2,6 +2,10 @@
   display: none;
 }
 
+.theme-selected {
+  border: black solid 2px;
+}
+
 .exterior-container {
   width: 70vw;
   margin: auto;
@@ -42,37 +46,38 @@
         margin: 5px;
         background-color: red;
         border-radius: 50%;
+        cursor: pointer;
       }
 
-      & > .defaultBlue {
+      & > #defaultBlue {
         background-color: #294168;
       }
 
-      & > .green {
+      & > #green {
         background-color: #2b9264;
       }
 
-      & > .blue {
+      & > #blue {
         background-color: #59a4ea;
       }
 
-      & > .red {
+      & > #red {
         background-color: #f24c38;
       }
 
-      & > .purple {
+      & > #purple {
         background-color: #8065dc;
       }
 
-      & > .orange {
+      & > #orange {
         background-color: #e96f1e;
       }
 
-      & > .violet {
+      & > #violet {
         background-color: #5f6be1;
       }
 
-      & > .yellow {
+      & > #yellow {
         background-color: #de9c22;
       }
     }

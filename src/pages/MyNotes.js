@@ -6,6 +6,7 @@ import ToDo from "../components/ToDo";
 
 const MyNotes = () => {
   const [isModalDisplayed, setIsModalDisplayed] = useState(false);
+  // const [theme, setTheme] = useState("defaultBlue");
 
   const settingsRef = useRef();
 

@@ -1,10 +1,12 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState("defaultBlue");
+
   const themes = {
-    blueDefault: "#294168",
+    defaultBlue: "#294168",
     green: "#2B9264",
     blue: "#59A4EA",
     purple: "#8065DC",
@@ -16,6 +18,8 @@ const ThemeProvider = ({ children }) => {
 
   const data = {
     themes,
+    theme,
+    setTheme,
   };
 
   return <ThemeContext.Provider value={data}>{children}</ThemeContext.Provider>;

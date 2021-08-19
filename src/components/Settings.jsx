@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { ThemeContext } from "../context/themeContext";
 import "../Sass/Settings.scss";
 
 const Settings = ({ settingsRef }) => {
+  useEffect(() => {
+    const actualTheme = document.querySelector(`#${theme}`);
+    actualTheme.classList.add("theme-selected");
+  }, []);
+
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const changeTheme = e => {
+    // console.log(e.target);
+    const allThemes = document.querySelectorAll(".theme");
+    // console.log(allThemes);
+    allThemes.forEach(el => {
+      el.classList.remove("theme-selected");
+    });
+    e.target.classList.add("theme-selected");
+    setTheme(e.target.id);
+  };
+
   return (
     <div ref={settingsRef} className="exterior-container div-hidden">
       <div className="inner-container">
@@ -16,14 +35,14 @@ const Settings = ({ settingsRef }) => {
         />
         <p>Select Theme</p>
         <div className="themes-container">
-          <div className="defaultBlue"></div>
-          <div className="green"></div>
-          <div className="blue"></div>
-          <div className="red"></div>
-          <div className="purple"></div>
-          <div className="orange"></div>
-          <div className="violet"></div>
-          <div className="yellow"></div>
+          <div className="theme" id="defaultBlue" onClick={changeTheme}></div>
+          <div className="theme" id="green" onClick={changeTheme}></div>
+          <div className="theme" id="blue" onClick={changeTheme}></div>
+          <div className="theme" id="red" onClick={changeTheme}></div>
+          <div className="theme" id="purple" onClick={changeTheme}></div>
+          <div className="theme" id="orange" onClick={changeTheme}></div>
+          <div className="theme" id="violet" onClick={changeTheme}></div>
+          <div className="theme" id="yellow" onClick={changeTheme}></div>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { ThemeContext } from "../context/themeContext";
 import { TodosContext } from "../context/todosContext";
 import "../Sass/Task.scss";
 
@@ -21,6 +22,8 @@ const Task = ({
 }) => {
   // const { inProgress, setInProgress } = useContext(TodosContext);
 
+  const { themes, theme } = useContext(ThemeContext);
+
   const changeColumn = (to, id, nextSetState) => {
     deleteTask(id, state, setState, localStorageKey);
 
@@ -37,8 +40,11 @@ const Task = ({
   };
 
   return (
-    <div className="task-container">
-      <p>{text}</p>
+    <div
+      className="task-container"
+      style={{ borderBottom: `2px solid ${themes[theme]}` }}
+    >
+      <p style={{ backgroundColor: `${themes[theme]}` }}>{text}</p>
       <div className="btns-container">
         <div className="left-btns-container">
           <button
