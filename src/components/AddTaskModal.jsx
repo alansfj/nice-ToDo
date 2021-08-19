@@ -18,11 +18,16 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
       pRef.current.classList.add("p-hidden");
     }
 
+    // let todoObject = { id: Date.now(), task: form.task };
+
+    // localStorage.setItem("todo", JSON.stringify(todoObject));
+
     toDo.push({ id: Date.now(), task: form.task });
+    localStorage.setItem("todo", JSON.stringify([...toDo]));
     setToDo([...toDo]);
     setIsModalDisplayed(false);
     inputRef.current.value = "";
-    setForm({});
+    setForm(initialForm);
   };
 
   const handleKeyPress = e => {
@@ -47,6 +52,7 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
           name="task"
           placeholder="Task..."
           autoComplete="off"
+          // maxLength="30"
           ref={inputRef}
           onKeyPress={handleKeyPress}
           onChange={handleChange}

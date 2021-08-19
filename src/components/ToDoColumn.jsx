@@ -13,20 +13,13 @@ const ToDoColumn = ({
   const { toDo, setToDo, inProgress, setInProgress, done, setDone } =
     useContext(TodosContext);
 
-  const deleteTask = (id, state, setState) => {
-    // let isDelete = window.confirm(
-    //   `¿Estás seguro de eliminar el registro con el id '${id}'?`
-    // );
-
-    // if (isDelete) {
-    //   let newData = db.filter(el => el.id !== id);
-    //   setDb(newData);
-    // } else {
-    //   return;
-    // }
-
+  const deleteTask = (id, state, setState, localStorageKey) => {
     let newData = state.filter(el => el.id !== id);
     setState(newData);
+
+    if (localStorageKey) {
+      localStorage.setItem(localStorageKey, JSON.stringify(newData));
+    }
   };
 
   return (
@@ -51,6 +44,8 @@ const ToDoColumn = ({
             setState={setToDo}
             nextSetState={setInProgress}
             nextState={inProgress}
+            localStorageKey="todo"
+            nextLocalStorageKey="inprogress"
           />
         ))}
 
@@ -66,6 +61,8 @@ const ToDoColumn = ({
             setState={setInProgress}
             nextSetState={setDone}
             nextState={done}
+            localStorageKey="inprogress"
+            nextLocalStorageKey="done"
           />
         ))}
 
@@ -80,6 +77,7 @@ const ToDoColumn = ({
             state={done}
             setState={setDone}
             isDoneColumn
+            localStorageKey="done"
             // nextSetState={setDone}
             // nextState={done}
           />
