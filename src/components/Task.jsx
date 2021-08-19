@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/themeContext";
-import { TodosContext } from "../context/todosContext";
 import "../Sass/Task.scss";
 
 const Task = ({
@@ -42,9 +41,19 @@ const Task = ({
   return (
     <div
       className="task-container"
-      style={{ borderBottom: `2px solid ${themes[theme]}` }}
+      style={{
+        borderBottomColor:
+          `${themes[localStorage.getItem("theme")]}` || `${themes[theme]}`,
+      }}
     >
-      <p style={{ backgroundColor: `${themes[theme]}` }}>{text}</p>
+      <p
+        style={{
+          backgroundColor:
+            `${themes[localStorage.getItem("theme")]}` || `${themes[theme]}`,
+        }}
+      >
+        {text}
+      </p>
       <div className="btns-container">
         <div className="left-btns-container">
           <button

@@ -4,7 +4,9 @@ import "../Sass/Settings.scss";
 
 const Settings = ({ settingsRef }) => {
   useEffect(() => {
-    const actualTheme = document.querySelector(`#${theme}`);
+    const actualTheme = document.querySelector(
+      `#${localStorage.getItem("theme")}` || `#${theme}`
+    );
     actualTheme.classList.add("theme-selected");
   }, []);
 
@@ -19,6 +21,7 @@ const Settings = ({ settingsRef }) => {
     });
     e.target.classList.add("theme-selected");
     setTheme(e.target.id);
+    localStorage.setItem("theme", e.target.id);
   };
 
   return (

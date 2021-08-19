@@ -5,7 +5,7 @@ import "../Sass/Cover.scss";
 
 const Cover = ({ settingsRef }) => {
   //   const { user } = useContext(UserContext);
-  const { themes, theme } = useContext(ThemeContext);
+  const { themes } = useContext(ThemeContext);
   const user = localStorage.getItem("user");
 
   const showSettings = () => {
@@ -15,7 +15,8 @@ const Cover = ({ settingsRef }) => {
   return (
     <div
       className="cover-container"
-      style={{ backgroundColor: `${themes[theme]}` }}
+      // style={{ backgroundColor: `${themes[theme]}` }}
+      style={{ backgroundColor: `${themes[localStorage.getItem("theme")]}` }}
     >
       <div className="cover-info">
         <div className="user-date">
