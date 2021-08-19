@@ -24,6 +24,10 @@ const Settings = ({ settingsRef }) => {
     localStorage.setItem("theme", e.target.id);
   };
 
+  const closeSettings = () => {
+    settingsRef.current.classList.add("div-hidden");
+  };
+
   return (
     <div ref={settingsRef} className="exterior-container div-hidden">
       <div className="inner-container">
@@ -47,6 +51,9 @@ const Settings = ({ settingsRef }) => {
           <div className="theme" id="violet" onClick={changeTheme}></div>
           <div className="theme" id="yellow" onClick={changeTheme}></div>
         </div>
+        <button className="close-btn" onClick={closeSettings}>
+          Close Settings
+        </button>
       </div>
     </div>
   );
