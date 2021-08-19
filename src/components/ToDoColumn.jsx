@@ -46,6 +46,7 @@ const ToDoColumn = ({
             nextState={inProgress}
             localStorageKey="todo"
             nextLocalStorageKey="inprogress"
+            isToDoColumn
           />
         ))}
 
@@ -59,10 +60,13 @@ const ToDoColumn = ({
             deleteTask={deleteTask}
             state={inProgress}
             setState={setInProgress}
-            nextSetState={setDone}
             nextState={done}
+            nextSetState={setDone}
+            prevState={toDo}
+            prevSetState={setToDo}
             localStorageKey="inprogress"
             nextLocalStorageKey="done"
+            prevLocalStorageKey="todo"
           />
         ))}
 
@@ -77,7 +81,11 @@ const ToDoColumn = ({
             state={done}
             setState={setDone}
             isDoneColumn
+            prevState={inProgress}
+            prevSetState={setInProgress}
             localStorageKey="done"
+            prevLocalStorageKey="inprogress"
+
             // nextSetState={setDone}
             // nextState={done}
           />

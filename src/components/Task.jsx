@@ -11,20 +11,29 @@ const Task = ({
   setState,
   nextSetState,
   nextState,
+  prevState,
+  prevSetState,
+  isToDoColumn,
   isDoneColumn,
   localStorageKey,
   nextLocalStorageKey,
+  prevLocalStorageKey,
 }) => {
   // const { inProgress, setInProgress } = useContext(TodosContext);
 
-  const changeColumn = (id, nextSetState) => {
+  const changeColumn = (to, id, nextSetState) => {
     deleteTask(id, state, setState, localStorageKey);
-    // inProgress.push(el);
-    // nextSetState([]);
 
-    const nextColumnData = [...nextState, el];
-    nextSetState(nextColumnData);
-    localStorage.setItem(nextLocalStorageKey, JSON.stringify(nextColumnData));
+    if (to === "next") {
+      const nextColumnData = [...nextState, el];
+      nextSetState(nextColumnData);
+      localStorage.setItem(nextLocalStorageKey, JSON.stringify(nextColumnData));
+    }
+    if (to === "prev") {
+      const nextColumnData = [...prevState, el];
+      prevSetState(nextColumnData);
+      localStorage.setItem(prevLocalStorageKey, JSON.stringify(nextColumnData));
+    }
   };
 
   return (
@@ -39,8 +48,17 @@ const Task = ({
           </button>
         </div>
         <div className="right-btns-container">
+          {!isToDoColumn && (
+            <button
+              onClick={() => changeColumn("prev", id, nextSetState, nextState)}
+            >
+              {"<-"}
+            </button>
+          )}
           {!isDoneColumn && (
-            <button onClick={() => changeColumn(id, nextSetState, nextState)}>
+            <button
+              onClick={() => changeColumn("next", id, nextSetState, nextState)}
+            >
               {"->"}
             </button>
           )}

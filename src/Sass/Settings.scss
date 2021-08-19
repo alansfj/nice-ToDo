@@ -1,0 +1,80 @@
+.div-hidden {
+  display: none;
+}
+
+.exterior-container {
+  width: 70vw;
+  margin: auto;
+
+  & > .inner-container {
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+    background-color: white;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+
+    & > h2 {
+      margin: 0;
+    }
+    & > p {
+      margin: 0;
+    }
+
+    & > input {
+      width: calc(35vw / 2);
+      padding: 5px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+      background-color: #edf1f8;
+      outline: none;
+    }
+
+    & > .themes-container {
+      display: flex;
+      flex-wrap: wrap;
+
+      & div {
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+        background-color: red;
+        border-radius: 50%;
+      }
+
+      & > .defaultBlue {
+        background-color: #294168;
+      }
+
+      & > .green {
+        background-color: #2b9264;
+      }
+
+      & > .blue {
+        background-color: #59a4ea;
+      }
+
+      & > .red {
+        background-color: #f24c38;
+      }
+
+      & > .purple {
+        background-color: #8065dc;
+      }
+
+      & > .orange {
+        background-color: #e96f1e;
+      }
+
+      & > .violet {
+        background-color: #5f6be1;
+      }
+
+      & > .yellow {
+        background-color: #de9c22;
+      }
+    }
+  }
+}

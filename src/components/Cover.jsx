@@ -3,10 +3,14 @@ import { ThemeContext } from "../context/themeContext";
 // import { UserContext } from "../context/userContext";
 import "../Sass/Cover.scss";
 
-const Cover = () => {
+const Cover = ({ settingsRef }) => {
   //   const { user } = useContext(UserContext);
   const { themes } = useContext(ThemeContext);
   const user = localStorage.getItem("user");
+
+  const showSettings = () => {
+    settingsRef.current.classList.toggle("div-hidden");
+  };
 
   return (
     <div
@@ -15,10 +19,12 @@ const Cover = () => {
     >
       <div className="cover-info">
         <div className="user-date">
-          <h2>Welcome {user}</h2>
-          <h4>{new Date().toLocaleDateString()}</h4>
+          <h1>Welcome {user}</h1>
+          <h3>{new Date().toLocaleDateString()}</h3>
         </div>
-        <button className="btn-settings">Settings</button>
+        <button className="btn-settings" onClick={showSettings}>
+          Settings
+        </button>
       </div>
     </div>
   );
