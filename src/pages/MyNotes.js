@@ -7,6 +7,8 @@ import { ThemeContext } from "../context/themeContext";
 
 const MyNotes = () => {
   const [isModalDisplayed, setIsModalDisplayed] = useState(false);
+  const [settingsUser, setSettingsUser] = useState();
+
   const settingsRef = useRef();
 
   const { theme } = useContext(ThemeContext);
@@ -15,8 +17,8 @@ const MyNotes = () => {
 
   return (
     <div>
-      <Cover settingsRef={settingsRef} />
-      <Settings settingsRef={settingsRef} />
+      <Cover settingsRef={settingsRef} settingsUser={settingsUser} />
+      <Settings settingsRef={settingsRef} setSettingsUser={setSettingsUser} />
       <ToDo setIsModalDisplayed={setIsModalDisplayed} />
       <AddTaskModal
         isModalDisplayed={isModalDisplayed}

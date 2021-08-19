@@ -2,12 +2,15 @@ import React, { useContext, useEffect } from "react";
 import { ThemeContext } from "../context/themeContext";
 import "../Sass/Settings.scss";
 
-const Settings = ({ settingsRef }) => {
+const Settings = ({ settingsRef, setSettingsUser }) => {
   useEffect(() => {
     const actualTheme = document.querySelector(
       `#${localStorage.getItem("theme")}` || `#${theme}`
     );
     actualTheme.classList.add("theme-selected");
+
+    const userInput = document.querySelector("#name");
+    userInput.value = localStorage.getItem("user");
   }, []);
 
   const { theme, setTheme } = useContext(ThemeContext);
@@ -22,6 +25,11 @@ const Settings = ({ settingsRef }) => {
     e.target.classList.add("theme-selected");
     setTheme(e.target.id);
     localStorage.setItem("theme", e.target.id);
+  };
+
+  const changeUser = e => {
+    setSettingsUser(e.target.value);
+    localStorage.setItem("user", e.target.value);
   };
 
   const closeSettings = () => {
@@ -39,6 +47,7 @@ const Settings = ({ settingsRef }) => {
           name="name"
           placeholder="Some name..."
           autoComplete="off"
+          onChange={changeUser}
         />
         <p>Select Theme</p>
         <div className="themes-container">

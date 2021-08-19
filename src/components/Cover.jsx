@@ -3,7 +3,7 @@ import { ThemeContext } from "../context/themeContext";
 // import { UserContext } from "../context/userContext";
 import "../Sass/Cover.scss";
 
-const Cover = ({ settingsRef }) => {
+const Cover = ({ settingsRef, settingsUser }) => {
   //   const { user } = useContext(UserContext);
   const { themes } = useContext(ThemeContext);
   const user = localStorage.getItem("user");
@@ -20,7 +20,7 @@ const Cover = ({ settingsRef }) => {
     >
       <div className="cover-info">
         <div className="user-date">
-          <h1>Welcome {user}</h1>
+          <h1>Welcome {settingsUser || user}</h1>
           <h3>{new Date().toLocaleDateString()}</h3>
         </div>
         <button className="btn-settings" onClick={showSettings}>
