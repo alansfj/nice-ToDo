@@ -3,7 +3,9 @@ import React, { createContext, useState } from "react";
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("defaultBlue");
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "defaultBlue"
+  );
 
   const themes = {
     defaultBlue: "#294168",
