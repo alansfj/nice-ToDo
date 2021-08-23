@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
+import { ThemeContext } from "../context/themeContext";
 import { TodosContext } from "../context/todosContext";
 import "../Sass/AddTaskModal.scss";
 
@@ -8,6 +9,7 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
   const inputRef = useRef();
   const pRef = useRef();
   const { toDo, setToDo } = useContext(TodosContext);
+  const { themes } = useContext(ThemeContext);
   const [form, setForm] = useState(initialForm);
 
   const saveTask = () => {
@@ -17,10 +19,6 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
     } else {
       pRef.current.classList.add("p-hidden");
     }
-
-    // let todoObject = { id: Date.now(), task: form.task };
-
-    // localStorage.setItem("todo", JSON.stringify(todoObject));
 
     toDo.push({ id: Date.now(), task: form.task });
     localStorage.setItem("todo", JSON.stringify([...toDo]));
@@ -62,6 +60,9 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
         </p>
         <div className="modal-btns">
           <button
+            style={{
+              border: `2px solid ${themes[localStorage.getItem("theme")]}`,
+            }}
             onClick={() => {
               setIsModalDisplayed(false);
               inputRef.current.value = "";
@@ -71,7 +72,14 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
           >
             Cancel
           </button>
-          <button onClick={saveTask}>Save Task</button>
+          <button
+            style={{
+              border: `2px solid ${themes[localStorage.getItem("theme")]}`,
+            }}
+            onClick={saveTask}
+          >
+            Save Task
+          </button>
         </div>
       </div>
     </div>

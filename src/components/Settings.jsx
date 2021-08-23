@@ -13,7 +13,7 @@ const Settings = ({ settingsRef, setSettingsUser }) => {
     userInput.value = localStorage.getItem("user");
   }, []);
 
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { themes, theme, setTheme } = useContext(ThemeContext);
 
   const changeTheme = e => {
     // console.log(e.target);
@@ -60,7 +60,13 @@ const Settings = ({ settingsRef, setSettingsUser }) => {
           <div className="theme" id="violet" onClick={changeTheme}></div>
           <div className="theme" id="yellow" onClick={changeTheme}></div>
         </div>
-        <button className="close-btn" onClick={closeSettings}>
+        <button
+          style={{
+            border: `2px solid ${themes[localStorage.getItem("theme")]}`,
+          }}
+          className="close-btn"
+          onClick={closeSettings}
+        >
           Close Settings
         </button>
       </div>

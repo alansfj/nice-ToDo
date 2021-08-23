@@ -1,0 +1,5 @@
+export { default as Add } from './Add'
+export { default as Delete } from './Delete'
+export { default as Gear } from './Gear'
+export { default as LeftArrow } from './LeftArrow'
+export { default as RightArrow } from './RightArrow'

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/themeContext";
-// import { UserContext } from "../context/userContext";
+import Gear from "../icons/Gear.jsx";
 import "../Sass/Cover.scss";
 
 const Cover = ({ settingsRef, settingsUser }) => {
@@ -23,9 +23,14 @@ const Cover = ({ settingsRef, settingsUser }) => {
           <h1>Welcome {settingsUser || user}</h1>
           <h3>{new Date().toLocaleDateString()}</h3>
         </div>
-        <button className="btn-settings" onClick={showSettings}>
-          Settings
-        </button>
+        <div
+          className="btn-settings"
+          onClick={showSettings}
+          // style={{ fontSize: "20px" }}
+        >
+          <Gear />
+          <p>Settings</p>
+        </div>
       </div>
     </div>
   );

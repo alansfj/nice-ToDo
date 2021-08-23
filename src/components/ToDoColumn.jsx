@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { TodosContext } from "../context/todosContext";
 import "../Sass/ToDoColumn.scss";
 import Task from "./Task";
+import Add from "../icons/Add";
+import { ThemeContext } from "../context/themeContext";
 
 const ToDoColumn = ({
   title,
@@ -12,6 +14,8 @@ const ToDoColumn = ({
 }) => {
   const { toDo, setToDo, inProgress, setInProgress, done, setDone } =
     useContext(TodosContext);
+
+  const { themes } = useContext(ThemeContext);
 
   const deleteTask = (id, state, setState, localStorageKey) => {
     let newData = state.filter(el => el.id !== id);
@@ -27,7 +31,17 @@ const ToDoColumn = ({
       {todoColumn ? (
         <div className="todo-title-container">
           <h3 className="todo-title">{title}</h3>
-          <button onClick={() => setIsModalDisplayed(true)}>Add Task</button>
+          <div
+            className="add-task-div"
+            onClick={() => setIsModalDisplayed(true)}
+            style={{
+              border: `2px solid ${themes[localStorage.getItem("theme")]}`,
+              fontSize: ".9rem",
+            }}
+          >
+            <Add />
+            <p>Add Task</p>
+          </div>
         </div>
       ) : (
         <h3>{title}</h3>
