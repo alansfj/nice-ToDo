@@ -47,6 +47,7 @@ const Settings = ({ settingsRef, setSettingsUser }) => {
           name="name"
           placeholder="Some name..."
           autoComplete="off"
+          maxLength="15"
           onChange={changeUser}
         />
         <p>Select Theme</p>

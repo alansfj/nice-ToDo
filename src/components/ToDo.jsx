@@ -26,13 +26,19 @@ const ToDo = ({ setIsModalDisplayed }) => {
 
   return (
     <div className="todo-container">
-      <ToDoColumn
-        todoColumn
-        title="To Do"
-        setIsModalDisplayed={setIsModalDisplayed}
-      />
-      <ToDoColumn inProgressColumn title="In Progress" />
-      <ToDoColumn doneColumn title="Done" />
+      <div className="todo">
+        <ToDoColumn
+          todoColumn
+          title="To Do"
+          setIsModalDisplayed={setIsModalDisplayed}
+        />
+      </div>
+      <div className="inprogress">
+        <ToDoColumn inProgressColumn title="In Progress" />
+      </div>
+      <div className="done">
+        <ToDoColumn doneColumn title="Done" />
+      </div>
     </div>
   );
 };

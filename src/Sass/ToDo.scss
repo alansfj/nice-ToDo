@@ -3,5 +3,36 @@
   margin: auto;
   margin-top: 1rem;
   display: flex;
+  // flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+@media screen and (max-width: 768px) {
+  .todo {
+    grid-area: todo;
+  }
+
+  .inprogress {
+    grid-area: inprogress;
+  }
+
+  .done {
+    grid-area: done;
+  }
+
+  .todo-container {
+    display: grid;
+    margin-top: 0;
+    grid-template-areas:
+      "todo inprogress"
+      "done done";
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .todo-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 80vw;
+  }
 }

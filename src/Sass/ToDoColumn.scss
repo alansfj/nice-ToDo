@@ -1,5 +1,4 @@
 .todo-column-container {
-  //   position: absolute;
   min-width: 30vw;
   min-height: 17.94rem;
   background-color: snow;
@@ -31,5 +30,22 @@
 
   & > h3 {
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .todo-column-container {
+    margin: 0;
+    max-width: 90vw;
+    margin-top: 1rem;
+    min-width: 40vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .todo-column-container {
+    margin: 1rem 0;
+    min-width: 70vw;
+    min-height: 9rem;
   }
 }

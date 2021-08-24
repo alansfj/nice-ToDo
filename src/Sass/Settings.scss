@@ -34,7 +34,7 @@
     }
 
     & > .close-btn {
-      width: calc(35vw / 4);
+      min-width: calc(35vw / 4);
       align-self: flex-end;
       border-radius: 5px;
       padding: 5px 2px;
@@ -50,7 +50,6 @@
         width: 20px;
         height: 20px;
         margin: 5px;
-        background-color: red;
         border-radius: 50%;
         cursor: pointer;
       }
@@ -87,5 +86,31 @@
         background-color: #de9c22;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .inner-container {
+    min-width: calc(70vw / 2);
+  }
+
+  input {
+    min-width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .inner-container {
+    min-width: 70vw;
+  }
+
+  input {
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .inner-container {
+    min-width: 100%;
   }
 }

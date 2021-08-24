@@ -39,6 +39,7 @@ const WelcomeForm = () => {
         id="name"
         autoComplete="off"
         placeholder="type..."
+        maxLength="15"
         onChange={e => setUser(e.target.value.trim())}
         onKeyPress={handleKeyPress}
         ref={inputRef}
