@@ -2,7 +2,7 @@
   min-width: 30vw;
   min-height: 17.94rem;
   background-color: snow;
-  margin: 0 1rem;
+  margin: 1rem;
   padding: 1rem;
   border-radius: 0.5rem;
 
@@ -33,18 +33,21 @@
   }
 }
 
+@media screen and (max-width: 951px) {
+  .todo-column-container {
+    max-width: 40vw;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .todo-column-container {
-    margin: 0;
-    max-width: 90vw;
-    margin-top: 1rem;
+    max-width: 100vw;
     min-width: 40vw;
   }
 }
 
 @media screen and (max-width: 480px) {
   .todo-column-container {
-    margin: 1rem 0;
     min-width: 70vw;
     min-height: 9rem;
   }

@@ -1,10 +1,15 @@
 .todo-container {
-  width: 100vw;
+  max-width: 100vw;
   margin: auto;
   margin-top: 1rem;
   display: flex;
-  // flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+@media screen and (max-width: 951px) {
+  .todo-container {
+    flex-wrap: wrap;
+  }
 }
 
 @media screen and (max-width: 768px) {
