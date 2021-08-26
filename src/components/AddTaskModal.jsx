@@ -11,9 +11,22 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
   const { toDo, setToDo } = useContext(TodosContext);
   const { themes } = useContext(ThemeContext);
   const [form, setForm] = useState(initialForm);
+  const [formArray, setFormArray] = useState([]);
 
   const saveTask = () => {
+    const filteredFormArray = formArray.filter(el => el.length > 20);
+
     if (!form.task) {
+      pRef.current.textContent = "Enter your task";
+      pRef.current.classList.remove("p-hidden");
+      return;
+    } else {
+      pRef.current.classList.add("p-hidden");
+    }
+
+    if (filteredFormArray.length) {
+      pRef.current.textContent =
+        "Tasks can't have words with more than 20 letters";
       pRef.current.classList.remove("p-hidden");
       return;
     } else {
@@ -39,6 +52,8 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
       ...form,
       [e.target.name]: e.target.value.trim(),
     });
+
+    setFormArray(inputRef.current.value.split(" ") || "");
   };
 
   return (
@@ -50,14 +65,11 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
           name="task"
           placeholder="Task..."
           autoComplete="off"
-          // maxLength="30"
           ref={inputRef}
           onKeyPress={handleKeyPress}
           onChange={handleChange}
         />
-        <p className="p-hidden" ref={pRef}>
-          Enter your task
-        </p>
+        <p className="p-hidden" ref={pRef}></p>
         <div className="modal-btns">
           <button
             style={{
