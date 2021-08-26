@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/nice-todo/static/css/main.3be72a46.chunk.css",
+    "main.js": "/nice-todo/static/js/main.6cdebfda.chunk.js",
+    "main.js.map": "/nice-todo/static/js/main.6cdebfda.chunk.js.map",
+    "runtime-main.js": "/nice-todo/static/js/runtime-main.e37699a3.js",
+    "runtime-main.js.map": "/nice-todo/static/js/runtime-main.e37699a3.js.map",
+    "static/js/2.bb066f21.chunk.js": "/nice-todo/static/js/2.bb066f21.chunk.js",
+    "static/js/2.bb066f21.chunk.js.map": "/nice-todo/static/js/2.bb066f21.chunk.js.map",
+    "static/js/3.2f422473.chunk.js": "/nice-todo/static/js/3.2f422473.chunk.js",
+    "static/js/3.2f422473.chunk.js.map": "/nice-todo/static/js/3.2f422473.chunk.js.map",
+    "index.html": "/nice-todo/index.html",
+    "static/css/main.3be72a46.chunk.css.map": "/nice-todo/static/css/main.3be72a46.chunk.css.map",
+    "static/js/2.bb066f21.chunk.js.LICENSE.txt": "/nice-todo/static/js/2.bb066f21.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e37699a3.js",
+    "static/js/2.bb066f21.chunk.js",
+    "static/css/main.3be72a46.chunk.css",
+    "static/js/main.6cdebfda.chunk.js"
+  ]
+}
