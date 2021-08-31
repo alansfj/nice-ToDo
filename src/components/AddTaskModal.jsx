@@ -3,26 +3,24 @@ import { ThemeContext } from "../context/themeContext";
 import { TodosContext } from "../context/todosContext";
 import "../Sass/AddTaskModal.scss";
 
-const initialForm = { task: "", id: null };
-
 const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
   const inputRef = useRef();
   const pRef = useRef();
   const { toDo, setToDo } = useContext(TodosContext);
   const { themes } = useContext(ThemeContext);
-  const [form, setForm] = useState(initialForm);
-  const [formArray, setFormArray] = useState([]);
+  const [task, setTask] = useState("");
+  const [taskArray, setTaskArray] = useState([]);
 
   const saveTask = () => {
-    const filteredFormArray = formArray.filter(el => el.length > 20);
-
-    if (!form.task) {
+    if (!task) {
       pRef.current.textContent = "Enter your task";
       pRef.current.classList.remove("p-hidden");
       return;
     } else {
       pRef.current.classList.add("p-hidden");
     }
+
+    const filteredFormArray = taskArray.filter(task => task.length > 20);
 
     if (filteredFormArray.length) {
       pRef.current.textContent =
@@ -33,31 +31,30 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
       pRef.current.classList.add("p-hidden");
     }
 
-    toDo.push({ id: Date.now(), task: form.task });
+    toDo.push({ id: Date.now(), task });
     localStorage.setItem("todo", JSON.stringify([...toDo]));
     setToDo([...toDo]);
+    restartAndHideModal();
+  };
+
+  const handleOnKeyPress = e => {
+    if (e.code === "Enter") saveTask();
+  };
+
+  const handleOnChange = e => {
+    setTask(e.target.value);
+    setTaskArray(e.target.value.split(" ") || []);
+  };
+
+  const restartAndHideModal = () => {
     setIsModalDisplayed(false);
     inputRef.current.value = "";
-    setForm(initialForm);
-  };
-
-  const handleKeyPress = e => {
-    if (e.code === "Enter") {
-      saveTask();
-    }
-  };
-
-  const handleChange = e => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value.trim(),
-    });
-
-    setFormArray(inputRef.current.value.split(" ") || "");
+    setTask("");
+    pRef.current.classList.add("p-hidden");
   };
 
   return (
-    <div className={`${isModalDisplayed && "displayed"} modal-container`}>
+    <div className={`${isModalDisplayed ? "displayed" : ""} modal-container`}>
       <div className="modal-form">
         <h3>New Task</h3>
         <input
@@ -66,8 +63,8 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
           placeholder="Task..."
           autoComplete="off"
           ref={inputRef}
-          onKeyPress={handleKeyPress}
-          onChange={handleChange}
+          onKeyPress={handleOnKeyPress}
+          onChange={handleOnChange}
         />
         <p className="p-hidden" ref={pRef}></p>
         <div className="modal-btns">
@@ -75,12 +72,7 @@ const AddTaskModal = ({ isModalDisplayed, setIsModalDisplayed }) => {
             style={{
               border: `2px solid ${themes[localStorage.getItem("theme")]}`,
             }}
-            onClick={() => {
-              setIsModalDisplayed(false);
-              inputRef.current.value = "";
-              setForm({});
-              pRef.current.classList.add("p-hidden");
-            }}
+            onClick={restartAndHideModal}
           >
             Cancel
           </button>

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import AddTaskModal from "../components/AddTaskModal";
 import Cover from "../components/Cover";
 import Settings from "../components/Settings";

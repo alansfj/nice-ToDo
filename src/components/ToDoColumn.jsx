@@ -99,9 +99,6 @@ const ToDoColumn = ({
             prevSetState={setInProgress}
             localStorageKey="done"
             prevLocalStorageKey="inprogress"
-
-            // nextSetState={setDone}
-            // nextState={done}
           />
         ))}
     </div>

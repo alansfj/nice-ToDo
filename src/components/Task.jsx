@@ -22,8 +22,6 @@ const Task = ({
   nextLocalStorageKey,
   prevLocalStorageKey,
 }) => {
-  // const { inProgress, setInProgress } = useContext(TodosContext);
-
   const { themes, theme } = useContext(ThemeContext);
 
   const changeColumn = (to, id, nextSetState) => {
