@@ -18,7 +18,7 @@ const WelcomeForm = () => {
   };
 
   const handleOnClick = () => {
-    if (!user) {
+    if (!user.trim()) {
       pRef.current.classList.remove("hidden");
     } else {
       localStorage.setItem("user", user);
