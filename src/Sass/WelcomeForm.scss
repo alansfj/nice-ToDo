@@ -12,12 +12,12 @@
   flex-direction: column;
   justify-content: center;
 
-  & > label {
+  label {
     align-self: flex-start;
     margin-bottom: 0.5rem;
   }
 
-  & > #name {
+  input {
     font-size: 1.3rem;
     padding: 0.5rem;
     outline: none;
@@ -26,7 +26,7 @@
     background-color: #edf1f8;
   }
 
-  & > .btn {
+  button {
     font-size: 1.3rem;
     margin-top: 0.5rem;
     padding: 0.5rem;
@@ -43,7 +43,7 @@
     }
   }
 
-  & > p {
+  p {
     color: red;
     margin: 0;
     margin-top: 0.5rem;
@@ -51,7 +51,7 @@
     align-self: start;
   }
 
-  & > .hidden {
+  & .hidden {
     visibility: hidden;
   }
 }

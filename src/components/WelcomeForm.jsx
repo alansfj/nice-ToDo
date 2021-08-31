@@ -1,33 +1,28 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { UserContext } from "../context/userContext";
 import "../Sass/WelcomeForm.scss";
 
 const WelcomeForm = () => {
   const { user, setUser } = useContext(UserContext);
-  const inputRef = useRef();
   const pRef = useRef();
   const history = useHistory();
   const location = useLocation();
 
-  useEffect(() => {
-    inputRef.current.value = user;
-  }, []);
+  const handleOnChange = e => {
+    setUser(e.target.value);
+  };
 
-  const submitUser = () => {
-    // console.log(inputRef.current);
+  const handleOnKeyPress = e => {
+    if (e.code === "Enter") handleOnClick();
+  };
+
+  const handleOnClick = () => {
     if (!user) {
       pRef.current.classList.remove("hidden");
     } else {
       localStorage.setItem("user", user);
       history.push(`${location.pathname}my-todo`);
-    }
-  };
-
-  const handleKeyPress = e => {
-    // console.log(e);
-    if (e.code === "Enter") {
-      submitUser();
     }
   };
 
@@ -37,19 +32,17 @@ const WelcomeForm = () => {
       <input
         type="text"
         id="name"
+        value={user}
         autoComplete="off"
         placeholder="type..."
         maxLength="15"
-        onChange={e => setUser(e.target.value.trim())}
-        onKeyPress={handleKeyPress}
-        ref={inputRef}
+        onChange={handleOnChange}
+        onKeyPress={handleOnKeyPress}
       />
       <p ref={pRef} className="hidden">
         Enter a name
       </p>
-      <button className="btn" onClick={submitUser}>
-        Continue
-      </button>
+      <button onClick={handleOnClick}>Continue</button>
     </div>
   );
 };

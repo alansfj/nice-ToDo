@@ -6,7 +6,6 @@ const WelcomePage = () => {
   return (
     <div>
       <div className="title-box">
-        {" "}
         <h1 className="welcome-title">
           Welcome to "Nice ToDo", a free ToDo app
         </h1>
