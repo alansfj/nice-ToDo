@@ -1,27 +1,28 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../context/themeContext";
 import "../Sass/Settings.scss";
 
-const Settings = ({ settingsRef, setSettingsUser }) => {
+const Settings = ({ settingsRef, setSettingsUser, showHideSettings }) => {
+  const inputRef = useRef();
+
   useEffect(() => {
     const actualTheme = document.querySelector(
       `#${localStorage.getItem("theme")}` || `#${theme}`
     );
     actualTheme.classList.add("theme-selected");
 
-    const userInput = document.querySelector("#name");
-    userInput.value = localStorage.getItem("user");
+    inputRef.current.value = localStorage.getItem("user");
   }, []);
 
   const { themes, theme, setTheme } = useContext(ThemeContext);
 
   const changeTheme = e => {
-    // console.log(e.target);
     const allThemes = document.querySelectorAll(".theme");
-    // console.log(allThemes);
-    allThemes.forEach(el => {
-      el.classList.remove("theme-selected");
+
+    allThemes.forEach(theme => {
+      theme.classList.remove("theme-selected");
     });
+
     e.target.classList.add("theme-selected");
     setTheme(e.target.id);
     localStorage.setItem("theme", e.target.id);
@@ -32,16 +33,13 @@ const Settings = ({ settingsRef, setSettingsUser }) => {
     localStorage.setItem("user", e.target.value);
   };
 
-  const closeSettings = () => {
-    settingsRef.current.classList.add("div-hidden");
-  };
-
   return (
     <div ref={settingsRef} className="exterior-container div-hidden">
       <div className="inner-container">
         <h2>Settings</h2>
         <p>Name</p>
         <input
+          ref={inputRef}
           type="text"
           id="name"
           name="name"
@@ -66,7 +64,7 @@ const Settings = ({ settingsRef, setSettingsUser }) => {
             border: `2px solid ${themes[localStorage.getItem("theme")]}`,
           }}
           className="close-btn"
-          onClick={closeSettings}
+          onClick={showHideSettings}
         >
           Close Settings
         </button>
